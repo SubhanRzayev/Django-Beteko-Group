@@ -1,0 +1,133 @@
+{% extends 'base.html' %} 
+{% load static i18n %} 
+{% load thumbnail %}
+
+{% block content %}
+<div class="wrapper">
+  <!-- Page Header Start -->
+  <div class="page-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>{% trans "Layihələrimiz" %}</h2>
+        </div>
+        <div class="col-12">
+          <a href="">{% trans "Ana Səhifə" %}</a>
+          <a href="">{% trans "Layihələrimiz" %}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Page Header End -->
+
+  <!-- Portfolio Start -->
+  <div class="portfolio category">
+    <div class="container">
+      <div class="section-header text-center">
+        <p>{% trans "Layihələrimiz" %}</p>
+        <h2>{% trans "Layihələrimizi Ziyarət Edin" %}</h2>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <ul id="portfolio-flters">
+            <a href="/projects"><li>All</li></a>
+
+            {% for category in categories_list %}
+            <a href="/projects?category={{category.id}}"
+              ><li>{{category.title}}</li></a
+            >
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="service">
+        <div class="container">
+          <div class="col-12 about-area space__inner--y30">
+            <div class="row">
+              <div class="col-lg-12 col-12 order-1 order-lg-2">
+                <div class="service-section space__inner--ry100">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <div class="service-item-wrapper space__bottom--m40">
+                            <div class="row">
+                              {% for project in project_list %}
+                              <div
+                              class="col-lg-4 col-md-6 col-12 space__bottom--40"
+                              >
+                              <div class="service-grid-item">
+                                  <div class="service-grid-item__image">
+                                  <div class="service-grid-item__image-wrapper">
+                                    <a
+                                      href="{{project.get_absolute_url}}"
+                                    >
+                                      {% thumbnail project.image "370x347" crop="center" as im %}
+                                                <img src="{{ im.url }}" width="300" height="370">
+                                            {% endthumbnail %}
+                                    </a>
+                                  </div>
+                                  <div class="icon">
+                                    <i class="flaticon-014-robot-arm"></i>
+                                  </div>
+                                </div>
+                                <div class="service-grid-item__content">
+                                  <h3 class="title">
+                                    <a
+                                      href="{{project.get_absolute_url}}"
+                                      >{{project.title}}</a
+                                    >
+                                  </h3>
+                                  <p class="card-text">{{project.description|truncatechars:35}}</p>
+                                    
+                                  
+                                  <a href="{{project.get_absolute_url}}" class="btn btn-warning"
+                                    >{% trans "Ətraflı" %}</a
+                                  >
+                                </div>
+                              </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+      {% comment %} <div class="row portfolio-container">
+        {% for project in project_list %}
+        
+        <div
+          class="col-lg-4 col-md-6 col-sm-12 portfolio-item first wow fadeInUp mt-5"
+          data-wow-delay="0.1s"
+        >
+          <div class="card" style="width: 18rem">
+            <img
+            style="width:300px;heigth:400px;"
+              class="card-img-top"
+              src="{{project.image.url}}"
+              alt="Card image cap"
+            />
+            <div class="card-body ">
+              <p class="card-text">{{project.description}}</p>
+              <a href="{{project.get_absolute_url}}" class="btn btn-warning"
+                >{% trans "Ətraflı" %}</a
+              >
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div> {% endcomment %}
+
+      <!-- Portfolio End -->
+
+      <!-- Footer Start -->
+
+      <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+    </div>
+    {% endblock %}
+  </div>
+</div>

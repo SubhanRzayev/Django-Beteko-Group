@@ -1,0 +1,48 @@
+{% extends 'base.html' %} 
+{% load static i18n %} 
+{% load thumbnail %}
+
+{% block content %}
+
+<div class="wrapper">
+  <div class="section-header text-center">
+    <p>{% trans "Layihələrimiz" %}</p>
+    <h2>{% trans "Layihələrimizi Ziyarət Edin" %}</h2>
+  </div>
+
+
+  <div class="row justify-content-center mb-5">
+    <div class="col-md-8 mt-3">
+    
+      <div class="row mb-5">
+        
+        <a
+          href="{{project.image.url}}"
+          data-toggle="lightbox"
+          data-gallery="example-gallery"
+          class="col-sm-4"
+        >
+          <img src="{{project.image.url}}" class="img-fluid" />
+          
+        </a>
+
+      {% for i in project.projects_image.all %}
+            
+        <a
+          href="{{i.image.url}}"
+          data-toggle="lightbox"
+          data-gallery="example-gallery"
+          class="col-sm-4"
+        >
+        {% thumbnail i.image "370x347" crop="center" as im %}
+          <img src="{{ im.url }}" width="300" height="370">
+        {% endthumbnail %}
+          
+        </a>
+    {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

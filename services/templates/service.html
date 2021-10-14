@@ -1,0 +1,126 @@
+{% extends 'base.html' %} 
+{% load static i18n %}
+{% load thumbnail %}
+
+{% block content %}
+<div class="wrapper">
+  <!-- Page Header Start -->
+    <div class="page-header">
+        <div class="container">
+        <div class="row">
+            <div class="col-12">
+            <h2>{% trans "Services" %}</h2>
+            </div>
+            <div class="col-12">
+            <a href="">{% trans "Ana Səhifə" %}</a>
+            <a href="">{% trans "Services" %}</a>
+            </div>
+        </div>
+        </div>
+    </div>
+  <!-- Page Header End -->
+
+  <!-- Service Start -->
+  <div class="portfolio category">
+    <div class="container">
+      <div class="section-header text-center">
+        <p>{% trans "Services" %}</p>
+        <h2>{% trans "Xidmətlər təqdim edirik" %}</h2>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <ul id="portfolio-flters">
+            <a href="/service"><li>All</li></a>
+
+            {% for category in categories_list %} 
+            {% if category.is_published %}
+            <a href="/service?category={{category.id}}" 
+              ><li>{{category.title}}</li></a
+            >
+            {% endif %} 
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+      <div class="service">
+        <div class="container">
+          <div class="col-12 about-area space__inner--y30">
+            <div class="row">
+              <div class="col-lg-12 col-12 order-1 order-lg-2">
+                <div class="service-section space__inner--ry100">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <div class="service-item-wrapper space__bottom--m40">
+                            <div class="row">
+                              {% for service in service_list %}
+                              <div
+                              class="col-lg-4 col-md-6 col-12 space__bottom--40"
+                              >
+                              <div class="service-grid-item">
+                                  <div class="service-grid-item__image">
+                                  <div class="service-grid-item__image-wrapper">
+                                    <a
+                                      href="{{service.get_absolute_url}}"
+                                    >
+                                    {% thumbnail service.cover_image "370x347" crop="center" as im %}
+                                        <img src="{{ im.url }}" width="300" height="370">
+                                    {% endthumbnail %}
+
+                                    </a>
+                                  </div>
+                                  <div class="icon">
+                                    <i class="flaticon-014-robot-arm"></i>
+                                  </div>
+                                </div>
+                                <div class="service-grid-item__content">
+                                  <h3 class="title">
+                                    <a
+                                      href="{{service.get_absolute_url}}"
+                                      >{{service.title}}</a
+                                    >
+                                  </h3>
+                                  <p class="card-text">{{service.description|truncatechars:30}}</p>
+                                    
+                                  
+                                  <a href="{{service.get_absolute_url}}" class="btn btn-warning"
+                                    >{% trans "Ətraflı" %}</a
+                                  >
+                                </div>
+                              </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="row">
+                    
+                        {% for service in service_list %}
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="card mt-5" style="width: 18rem;">
+                            <img class="card-img-top" src="{{service.cover_image.url}}" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">{{service.title}}</h5>
+                                <p class="card-text">{{service.description}}</p>
+                                {% comment %} <a href="#" class="btn btn-primary">{% trans "Ətraflı" %}</a> {% endcomment %}
+                            </div>
+                            </div>
+                            </div>
+                        {% endfor %}
+                    </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Service End -->
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+{% endblock %}

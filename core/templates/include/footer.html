@@ -1,0 +1,85 @@
+{% load static i18n %}
+{% load custom_tags %}
+<!-- Footer Start -->
+        <div class="wrapper">
+
+            <div class="footer wow fadeIn" data-wow-delay="0.3s">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-3">
+                            <div class="footer-contact">
+                                <h2>Office Contact</h2>
+                                {% header_address as context %}
+                                {% for i in context  %}
+                                <p><i class="fa fa-map-marker-alt"></i>{{i.location}}</p>
+                                <p><i class="fa fa-phone-alt"></i>{{i.phone}}</p>
+                                <p><i class="fa fa-envelope"></i>{{i.email}}</p>
+                                {% endfor %}
+                                <div class="footer-social">
+                                    {% comment %} <a href=""><i class="fab fa-twitter"></i></a>
+                                    <a href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a href=""><i class="fab fa-youtube"></i></a> {% endcomment %}
+                                    {% comment %} <a href=""><i class="fab fa-instagram"></i></a> {% endcomment %}
+                                    <a href=""><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="footer-link">
+                                <h2>Services Areas</h2>
+                                {% header_category as context%}
+                                {% for i in context %}
+                                <a href="/service?category={{i.id}}">{{i.title}}</a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="footer-link">
+                                <h2>Useful Pages</h2>
+                                <a href="{% url 'core:about' %}">{% trans "Haqqımızda" %}</a>
+                                <a href="{% url 'core:contact' %}">{% trans "Əlaqə" %}</a>
+                                <a href="{% url 'services:projects' %}">{% trans "Proyektlər" %}</a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="newsletter">
+                                <h2>Newsletter</h2>
+                                <p>
+                                    Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulpu
+                                </p>
+                                
+                            <form action="#" method="post" id="subscribe-form" name="mc-embedded-subscribe-form">
+                                {% csrf_token %}
+                                <div class="form">
+                                    <input type="text" name='email' class="form-control" placeholder="Email here">
+                                    <input type="submit" id="mc-embedded-subscribe" class="btn" >
+                                    <ul id="error-list" style="list-style-type: none"></ul>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="container footer-menu">
+                    <div class="f-menu">
+                        <a href="">Terms of use</a>
+                        <a href="">Privacy policy</a>
+                        <a href="">Help</a>
+                    </div>
+                </div>
+                <div class="container copyright">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>&copy; <a href="#">Copyright © "BETEKO GROUP",Müəllif hüquqları qorunur.</a></p>
+                        </div>
+                        <div class="col-md-6">
+                            <p>Designed By<a href="http://kodergroup.az/"> Koder Group</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+            <!-- Footer End -->
+
+            

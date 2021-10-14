@@ -1,0 +1,108 @@
+Fashion & Beauty
+Kids & Babies Clothes
+Men & Women Clothes
+Gadgets & Accessories
+Electronics & Accessories
+
+
+from django.http import request
+from core.models import HeaderImage
+from django.shortcuts import get_object_or_404
+from django.urls.base import reverse
+from django.views.generic import ListView,DetailView
+from django.core.paginator import EmptyPage,PageNotAnInteger, Paginator
+
+
+
+from product.models import *
+# Create your views here.
+
+PRODUCTS_PER_PAGE = 2
+class ProductView(ListView):
+    model= Product
+    template_name = 'product-list.html'
+    context_object_name = 'product'
+    paginate_by = 3
+
+
+
+    
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        product = Product.get_all_products()
+        page = self.request.GET.get('page',1)
+        product_paginator = Paginator(product,PRODUCTS_PER_PAGE)
+        try:
+            product = product_paginator.page(page)
+        except EmptyPage:
+            product = product_paginator.page(product_paginator.num_pages)
+            print('sdasdd')
+        except:
+            product = product_paginator.page(PRODUCTS_PER_PAGE)
+
+
+        products = None
+        categoryId = self.request.GET.get('category')
+        if categoryId:
+            products = Product.get_all_products_by_categoryid(categoryId)
+        else:
+            products =  Product.get_all_products()
+        context["categories_list"] = Category.get_all_categories()
+        context['category'] = Category.objects.filter(image__isnull = False)[3:8]
+        context["product_list"] = products
+        context['products'] = Product.get_all_products()
+        context["brand_list"] =  BrandSlider.objects.all()
+        context['header_list'] = HeaderImage.objects.all()
+        context['product'] = product
+        context['page_obj'] = product
+        context['is_paginated'] = True
+        context['paginator'] = product_paginator
+        return context
+
+
+
+<<<<<<HTML>>>>>>>>>>>>>>>>>>>
+
+{% if is_paginated %}
+                        <div class="col-md-12">
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination justify-content-center">
+                                {% if page_obj.has_previous %}
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="/product-list/?page={{page_obj.previous_page_number}}" tabindex="-1">Previous</a>
+                                    </li>
+                                {% endif %}
+                                {% for i in paginator.page_range  %}
+                                {% if i == page_obj.number %}   
+                                    <li class="page-item active" aria-current = 'page'><a class="page-link" href="/product-list/?page={{i}}" span class="visually-hidden">{{i}}</span></a></li>
+                                {% else %}
+                                    <li class="page-item"><a class="page-link" href="/product-list/?page={{i}}">{{i}}</a></li>
+                                    {% endif %}
+                                {% endfor %}
+                                    {% if page_obj.has_next %}
+                                    <li class="page-item">
+                                        <a class="page-link" tabindex="-1" href="/product-list/?page={{page_obj.next_page_number}}">Next</a>
+                                    </li>
+                                    {% endif %}
+                                </ul>
+                            </nav>
+                        </div>
+                        {% endif %}
+
+
+<li data-filter=".first">Complete</li>
+
+
+{% for service in service_list %}
+                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="{{service.cover_image.url}}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{service.title}}</h5>
+                            <p class="card-text">{{service.description}}</p>
+                        </div>
+                        </div>
+                        </div>
+                    {% endfor %}

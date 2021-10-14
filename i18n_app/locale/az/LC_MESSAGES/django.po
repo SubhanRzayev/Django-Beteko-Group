@@ -1,0 +1,250 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-10-11 13:33+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: BETEKO/settings.py:125
+msgid "Azerbaijani"
+msgstr ""
+
+#: BETEKO/settings.py:126
+msgid "English"
+msgstr ""
+
+#: BETEKO/settings.py:127
+msgid "Russia"
+msgstr ""
+
+#: core/templates/about.html:11
+msgid "Bizim haqqımizda"
+msgstr ""
+
+#: core/templates/about.html:14 core/templates/blog.html:14
+#: core/templates/contact.html:13 core/templates/include/header.html:72
+#: core/templates/team.html:14 services/templates/portfolio.html:14
+#: services/templates/service.html:15
+msgid "Ana Səhifə"
+msgstr ""
+
+#: core/templates/about.html:15
+msgid "About"
+msgstr ""
+
+#: core/templates/about.html:34
+msgid "Betekoya xoş gəldiniz"
+msgstr ""
+
+#: core/templates/about.html:35 core/templates/index.html:109
+msgid "25 İl Təcrübə"
+msgstr ""
+
+#: core/templates/about.html:39 core/templates/index.html:113
+msgid ""
+"Missiya Müştərilərimizə üstün dəyər verən məhsul və xidmətləri paylayaraq "
+"Beteko üçün rəqabət üstünlüyü yaratmaq."
+msgstr ""
+
+#: core/templates/about.html:42
+msgid ""
+" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec "
+"pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus "
+"tortor, auctor id gravida condimentum, viverra quis sem. Curabitur non nisl "
+"nec nisi scelerisque maximus. Aenean consectetur convallis porttitor. "
+"Aliquam interdum at lacus non blandit."
+msgstr ""
+
+#: core/templates/about.html:44 core/templates/index.html:118
+msgid "Daha ətraflı"
+msgstr ""
+
+#: core/templates/about.html:65 core/templates/index.html:139
+msgid "İşçilər"
+msgstr ""
+
+#: core/templates/about.html:74 core/templates/index.html:148
+msgid "Xoş Müştərilər"
+msgstr ""
+
+#: core/templates/about.html:87 core/templates/index.html:161
+msgid "Tamamlanmış Layihələr"
+msgstr ""
+
+#: core/templates/about.html:96 core/templates/index.html:170
+msgid "İŞLƏNƏN PROYEKTLƏR"
+msgstr ""
+
+#: core/templates/blog.html:11 core/templates/blog.html:15
+msgid "Blogumuz"
+msgstr ""
+
+#: core/templates/blog.html:27 core/templates/index.html:392
+msgid "Ən son blog"
+msgstr ""
+
+#: core/templates/blog.html:28 core/templates/index.html:393
+msgid "Blogumuzdan Ən Son"
+msgstr ""
+
+#: core/templates/contact.html:10
+msgid "Əlaqə saxlayın"
+msgstr ""
+
+#: core/templates/contact.html:14 core/templates/include/footer.html:40
+#: core/templates/include/header.html:87
+msgid "Əlaqə"
+msgstr ""
+
+#: core/templates/contact.html:26
+msgid "Əlaqədə olmaq"
+msgstr ""
+
+#: core/templates/contact.html:27
+msgid "İstənilən Sual üçün"
+msgstr ""
+
+#: core/templates/contact.html:36
+msgid "Ünvan"
+msgstr ""
+
+#: core/templates/contact.html:46
+msgid "Nömrə"
+msgstr ""
+
+#: core/templates/contact.html:56
+msgid "E -poçt"
+msgstr ""
+
+#: core/templates/contact.html:88
+msgid "Mesaj göndərin"
+msgstr ""
+
+#: core/templates/include/footer.html:39 core/templates/include/header.html:74
+msgid "Haqqımızda"
+msgstr ""
+
+#: core/templates/include/footer.html:41 core/templates/index.html:239
+#: core/templates/team.html:11 core/templates/team.html:15
+#: core/templates/team.html:27
+msgid "Bizim Komanda"
+msgstr ""
+
+#: core/templates/include/footer.html:42 core/templates/include/header.html:82
+msgid "Proyektlər"
+msgstr ""
+
+#: core/templates/include/footer.html:43 core/templates/include/header.html:84
+msgid "Xəbərlər"
+msgstr ""
+
+#: core/templates/include/header.html:76
+msgid "Şirkətə Baxış"
+msgstr ""
+
+#: core/templates/include/header.html:77
+msgid "Bizim yanaşmamız"
+msgstr ""
+
+#: core/templates/include/header.html:80
+msgid "Xidmətlər"
+msgstr ""
+
+#: core/templates/include/header.html:81
+msgid "Komanda"
+msgstr ""
+
+#: core/templates/index.html:17
+msgid "Biz Peşəkarıq"
+msgstr ""
+
+#: core/templates/index.html:18
+msgid "Xəyal Layihəniz Üçün"
+msgstr ""
+
+#: core/templates/index.html:19 core/templates/index.html:28
+#: core/templates/index.html:37
+msgid "Bir layihə əldə edin"
+msgstr ""
+
+#: core/templates/index.html:26
+msgid "Peşəkar İnşaatçı"
+msgstr ""
+
+#: core/templates/index.html:27
+msgid "Evinizi Tikdiririk"
+msgstr ""
+
+#: core/templates/index.html:35
+msgid "Bizə Güvəndilər"
+msgstr ""
+
+#: core/templates/index.html:36
+msgid "Xəyal Eviniz üçün"
+msgstr ""
+
+#: core/templates/index.html:64
+msgid "Mütəxəssis İşçi"
+msgstr ""
+
+#: core/templates/index.html:65
+msgid "Lorem ipsum dolor sit amet elit. Phasus nec pretim ornare velit non"
+msgstr ""
+
+#: core/templates/index.html:75
+msgid "Keyfiyyətli İş"
+msgstr ""
+
+#: core/templates/index.html:86
+msgid "24/7 Dəstək"
+msgstr ""
+
+#: core/templates/index.html:108
+msgid "Xoş gəldiniz BETEKO GROUP"
+msgstr ""
+
+#: core/templates/index.html:185 services/templates/service.html:12
+#: services/templates/service.html:16 services/templates/service.html:28
+msgid "Services"
+msgstr ""
+
+#: core/templates/index.html:186 services/templates/service.html:29
+msgid "Xidmətlər təqdim edirik"
+msgstr ""
+
+#: core/templates/index.html:196 services/templates/portfolio.html:58
+#: services/templates/service.html:63
+msgid "Ətraflı"
+msgstr ""
+
+#: core/templates/index.html:240
+msgid "Mühəndisimizlə tanış olun"
+msgstr ""
+
+#: core/templates/team.html:28
+msgid "Mühəndislərimizlə tanış olun"
+msgstr ""
+
+#: services/templates/portfolio.html:11 services/templates/portfolio.html:15
+#: services/templates/portfolio.html:26
+#: services/templates/projects-detail.html:7
+msgid "Layihələrimiz"
+msgstr ""
+
+#: services/templates/portfolio.html:27
+#: services/templates/projects-detail.html:8
+msgid "Layihələrimizi Ziyarət Edin"
+msgstr ""

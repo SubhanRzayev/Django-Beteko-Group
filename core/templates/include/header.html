@@ -1,0 +1,127 @@
+<!-- Top Bar Start -->
+{% load static i18n %}
+{% load custom_tags %}
+        <div class="wrapper">
+            <div class="top-bar">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <div class="col-lg-4 col-md-12">
+                            <div class="logo">
+                                <a href="{% url 'core:index' %}">
+                                    <h1>BETEKO</h1>
+                                    <!-- <img src="img/logo.jpg" alt="Logo"> -->
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 col-md-7 d-none d-lg-block">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="top-bar-item">
+                                        <div class="top-bar-icon">
+                                            <i class="flaticon-calendar"></i>
+                                        </div>
+                                        <div class="top-bar-text">
+                                            <h3>Opening Hour</h3>
+                                            <p>Mon - Fri, 8:00 - 9:00</p>
+                                            
+                                        </div>
+                                 
+                                    </div>
+                                </div>
+                                {% header_address as context%}
+                                {% for i in context  %}
+                                <div class="col-4">
+                                    <div class="top-bar-item">
+                                        <div class="top-bar-icon">
+                                            <i class="flaticon-call"></i>
+                                        </div>
+                                        <div class="top-bar-text">
+                                            <h3>Call Us</h3>
+                                            <a href="tel:+994 55 875 79 73">{{i.phone}}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="top-bar-item">
+                                        <div class="top-bar-icon">
+                                            <i class="flaticon-send-mail"></i>
+                                        </div>
+                                        <div class="top-bar-text">
+                                            <h3>Email Us</h3>
+                                            <a href="mailto:contact@infobeteko.com">{{i.email}}</a>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Top Bar End -->
+
+            <!-- Nav Bar Start -->
+            <div class="nav-bar">
+                <div class="container-fluid">
+                    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+                        <a href="#" class="navbar-brand">MENU</a>
+                        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                            <div class="navbar-nav mr-auto">
+                                <a href="{% url 'core:index' %}" class="nav-item nav-link">{% trans "Ana Səhifə" %}</a>
+                                    <a href="{% url 'core:about' %}" class="nav-link ">{% trans "Haqqımızda" %}</a>
+                                <div class="nav-item dropdown">
+                                    <a href="{% url 'services:service' %}" class="nav-link dropdown-toggle " data-toggle="dropdown">{% trans "Xidmətlər" %}</a>
+                                    <div class="dropdown-menu">
+                                     <a href="/service"><li>All</li></a>    
+                                     {% header_category as context%}
+                                    {% for i in context %}
+                                        <a href="/service?category={{i.id}}" class="dropdown-item-active">{{i.title}}</a>
+                                    {% endfor %}
+                                    </div>
+                                </div>
+                                <a href="{% url 'services:projects' %}" class="nav-item nav-link">{% trans "Proyektlər" %}</a>
+    
+                                    
+                                
+                                <a href="{% url 'core:contact' %}" class="nav-item nav-link">{% trans "Əlaqə" %}</a>
+                                
+                            </div>
+                            <div class="ml-auto">
+                                
+                                  
+   <div class="btn-header">
+   
+    <form action="{% url 'set_language' %}" method="post">
+        
+      {% csrf_token %}
+      <input name="next" type="hidden" value="{{ redirect_to }}" />
+        {% get_current_language as LANGUAGE_CODE %}
+        {% get_available_languages as LANGUAGES %}
+        {% get_language_info_list for LANGUAGES as languages %}
+        {% for language in languages %}
+          <button type="submit" name="language" value="{{ language.code }}"
+            class="btn btn-warning">
+            {{ language.code }}
+          </button>|&nbsp;
+        {% endfor %}
+        
+    </form>
+    
+  </div>
+        </div>
+        <div class="footer-social">
+            <a href=""><i class=" nav-item nav-link fab fa-linkedin-in" style="color: white;font-size:26px;"></i></a>
+
+        </div>
+            </div>
+        </nav>
+    </div>
+</div>
+</div>
+
+            <!-- Nav Bar End -->

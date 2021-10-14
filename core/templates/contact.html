@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+{% block content %}
+        <div class="wrapper">
+             <!-- Page Header Start -->
+            <div class="page-header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2>{% trans "Əlaqə saxlayın" %}</h2>
+                        </div>
+                        <div class="col-12">
+                            <a href="{% url 'core:index' %}">{% trans "Ana Səhifə" %}</a>
+                            <a href="">{% trans "Əlaqə" %}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Page Header End -->
+
+
+            <!-- Contact Start -->
+            <div class="contact wow fadeInUp">
+                <div class="container">
+                    <div class="section-header text-center">
+                        <p>{% trans "Əlaqədə olmaq" %}</p>
+                        <h2>{% trans "İstənilən Sual üçün" %}</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="contact-info">
+                                <div class="contact-item">
+                                    <i class="flaticon-address"></i>
+                        {% for i in address_list %}
+                                    <div class="contact-text">
+                                        <h2>{% trans "Ünvan" %}</h2>
+                                        <p>{{i.location}}</p>
+                                    </div>
+                        {% endfor %}
+                                </div>
+                                <div class="contact-item">
+                        
+                                    <i class="flaticon-call"></i>
+                        {% for i in address_list %}
+                                    <div class="contact-text">
+                                        <h2>{% trans "Nömrə" %}</h2>
+                                        <p>+{{i.phone}}</p>
+                                    </div>
+                        {% endfor %}
+                                </div>
+                                <div class="contact-item">
+                        
+                                    <i class="flaticon-send-mail"></i>
+                        {% for i in address_list %}
+                                    <div class="contact-text">
+                                        <h2>{% trans "E -poçt" %}</h2>
+                                        <p>{{i.email}}</p>
+                                    </div>
+                        {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="contact-form">
+                                <div id="success"></div>
+                                <form method="post"  name="sentMessage">
+                                {% csrf_token %}
+                                    <div class="control-group">
+                                        {{form.name}}
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div class="control-group">
+                                        {{form.email}}
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div class="control-group">
+                                        {{form.subject}}
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div class="control-group">
+                                         <fieldset>
+                                        <textarea cols="22" {{form.message}}></textarea>
+                                        </fieldset>
+                                        
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div>
+                                        <button class="btn" type="submit" id="sendMessageButton">{% trans "Mesaj göndərin" %}</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Contact End -->
+
+
+            <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+        </div>
+
+{% endblock %}
+
+        
