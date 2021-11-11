@@ -24,6 +24,7 @@ class SubscriberAdmin(admin.ModelAdmin):
     search_fields = ('email',)
 
 
+    
 
 admin.site.register(About)
 admin.site.register(Customer)

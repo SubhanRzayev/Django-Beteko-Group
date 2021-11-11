@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-13 10:14+0000\n"
+"POT-Creation-Date: 2021-11-03 13:39+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,23 +18,24 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: BETEKO/settings.py:126
+#: BETEKO/settings.py:127
 msgid "Azerbaijani"
 msgstr ""
 
-#: BETEKO/settings.py:127
+#: BETEKO/settings.py:128
 msgid "English"
 msgstr ""
 
 #: core/templates/about.html:11 core/templates/about.html:15
-#: core/templates/include/footer.html:39 core/templates/include/header.html:73
+#: core/templates/include/footer.html:41 core/templates/include/header.html:75
 msgid "Haqqımızda"
 msgstr "About"
 
 #: core/templates/about.html:14 core/templates/blog.html:14
-#: core/templates/contact.html:13 core/templates/include/header.html:72
-#: core/templates/team.html:14 services/templates/portfolio.html:14
+#: core/templates/contact.html:13 core/templates/include/header.html:74
+#: core/templates/team.html:14 services/templates/portfolio.html:15
 #: services/templates/service.html:15
+#: services/templates/service_details.html:15
 msgid "Ana Səhifə"
 msgstr "Home"
 
@@ -48,38 +49,151 @@ msgstr "25 Years Experience"
 
 #: core/templates/about.html:39 core/templates/index.html:113
 msgid ""
-"Missiya Müştərilərimizə üstün dəyər verən məhsul və xidmətləri paylayaraq "
-"Beteko üçün rəqabət üstünlüyü yaratmaq."
+"“Beteko Group”un yüksək ixtisaslı mütəxəssisləri müştərilərinin tikinti və "
+"dizayn sahəsində olan hər hansı bir sifarişini yerinə yetirirlər. Onlar "
+"gələcək obyektin layihələşdirilməsindən başlamış, onun tam hazır şəkildə "
+"təhvil verilməsinə kimi bütün mərhələləri həyata keçirmək iqtidarındadırlar."
 msgstr ""
-"Mission By distributing products and services that give superior value to "
-"our customers Create a competitive advantage for Beteko."
+"Construction of highly qualified personnel of Beteko Group and fulfill any "
+"order in the field of design. They are starting from the design of the "
+"future facility, in its fully finished form are able to carry out all stages "
+"until delivery."
 
-#: core/templates/about.html:42
+#: core/templates/about.html:42 core/templates/index.html:116
 msgid ""
-" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec "
-"pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus "
-"tortor, auctor id gravida condimentum, viverra quis sem. Curabitur non nisl "
-"nec nisi scelerisque maximus. Aenean consectetur convallis porttitor. "
-"Aliquam interdum at lacus non blandit."
+"“Beteko Group” MMC, ingilis variantında “Beteko Group Limited Liability "
+"Company” şirkəti 2006-cı ilin oktyabr ayından etibarən tikinti xidmətləri "
+"bazarında fəaliyyət göstərir. Bu müddət ərzində şirkət yerinə yetirdiyi "
+"işlərin bütün spektri boyunca – həm əhatə diapazonu, həm də keyfiyyətinə "
+"görə rəqibləri qarşısında öz üstünlüyünü sübut edə bilmişdir.“Beteko "
+"Group”un yüksək ixtisaslı mütəxəssisləri müştərilərinin tikinti və dizayn "
+"sahəsində olan hər hansı bir sifarişini yerinə yetirirlər. Onlar gələcək "
+"obyektin layihələşdirilməsindən başlamış, onun tam hazır şəkildə təhvil "
+"verilməsinə kimi bütün mərhələləri həyata keçirmək iqtidarındadırlar. "
+msgstr ""
+"Beteko Group LLC, in English, Beteko Group Limited Liability Company "
+"”construction services since October 2006 operates in the market. During "
+"this time the company performed along the entire spectrum of work - both "
+"coverage and quality was able to prove its superiority over rivals. ”Beteko "
+"Group's highly qualified specialists in construction and design of clients "
+"fulfill any order in the field. They will come Starting from the design of "
+"the object, its complete delivery verilməsinə kimi bütün mərhələləri həyata "
+"keçirmək iqtidarındadırlar. "
+
+#: core/templates/about.html:45 core/templates/index.html:119
+msgid ""
+"“Beteko”nun yerinə yetirdiyi xidmətlərin tam siyahısı aşağıdakılardan "
+"ibarətdir:"
+msgstr ""
+"The full list of services provided by Beteko is as follows consists of: "
+
+#: core/templates/about.html:49 core/templates/index.html:123
+msgid ""
+"sənaye müəssisələrinin binalarının memarlıq layihələşdirilməsi, tikintisi, "
+"yenidən qurulması, avadanlığın quraşdırılması və sazlanması;"
+msgstr ""
+"architectural design, construction of industrial buildings,Reconstruction, "
+"installation and adjustment of equipment; "
+
+#: core/templates/about.html:51 core/templates/index.html:125
+msgid "obyektlərin memarlıq layihələrinin baş planlarının hazırlanması;"
+msgstr "preparation of master plans of architectural projects of objects; "
+
+#: core/templates/about.html:53 core/templates/index.html:127
+#, fuzzy
+#| msgid ""
+#| "sənaye, ictimai və yaşayış təyinatlı obyektlərin memarlıq "
+#| "layihələşdirilməsi, tikintisi və yenidən qurulması; "
+msgid ""
+"sənaye, ictimai və yaşayış təyinatlı obyektlərin memarlıq "
+"layihələşdirilməsi, tikintisi və yenidən qurulması;"
+msgstr ""
+"Architecture of industrial, public and residential facilities design, "
+"construction and reconstruction; "
+
+#: core/templates/about.html:55 core/templates/index.html:129
+msgid "mühəndis-tədqiqat işlərinin aparılması;"
+msgstr "carrying out engineering research works; "
+
+#: core/templates/about.html:56 core/templates/index.html:130
+msgid "bina və qurğuların təmir layihələrinin işlənib hazırlanması;"
+msgstr "development of repair projects of buildings and facilities;"
+
+#: core/templates/about.html:57 core/templates/index.html:131
+msgid "tikinti sahəsində ekspert və məsləhət xidmətlərinin yerinə yetirilməsi;"
+msgstr ""
+"implementation of expert and consulting services in the field of "
+"construction; "
+
+#: core/templates/about.html:58 core/templates/index.html:132
+msgid ""
+"tikinti və təmir layihələrinin həyata keçirilməsinə nəzarət və onların "
+"koordinasiyası;"
 msgstr ""
 
-#: core/templates/about.html:44 core/templates/index.html:118
+#: core/templates/about.html:60 core/templates/index.html:134
+msgid ""
+"telekommunikasiya sektorunda obyektlərin layihələşdirilməsi, tikintisi və "
+"texniki cəhətcə dəstəklənməsi üzrə xidmətlərin geniş spektri."
+msgstr ""
+"Control over the implementation of construction and repair projects and "
+"their coordination; "
+
+#: core/templates/about.html:62 core/templates/index.html:136
+msgid ""
+"“Beteko Group” şirkəti hər bir zaman tikinti xidməti bazarının ən son "
+"meyllərini duyur və və onları öz fəaliyyətində istifadə edir. Şirkətin "
+"mütəxəssisləri öz səriştəlik səviyyələrini daima müxtəlif təlim kurslarında, "
+"treninqlərdə və seminarlarda artırırlar. Onlar burada əldə etdikləri "
+"bilikləri iş təcrübəsində müvəffəqiyyətlə tətbiq edirlər. “Beteko Group” – "
+"Azərbaycandakı müasir, ekoloji və texnoloji tikinti ideyasının canlı "
+"təzahürüdür."
+msgstr ""
+"Beteko Group is always the latest in the construction services market senses "
+"trends and uses them in its activities. Professionals constantly improve "
+"their skills at various training courses, They increase in trainings and "
+"seminars. What they get here successfully apply knowledge in practice. "
+"Beteko Group - The idea of ​​modern, ecological and technological construction "
+"in Azerbaijan is alive is a manifestation."
+
+#: core/templates/about.html:63 core/templates/index.html:137
+#, python-format
+msgid ""
+"Planlı şəkildə inkişafının bütün bu illəri boyu “Beteko Group” özünü "
+"etibarlı partnyor kimi göstərə bilmişdir. Elə kontragentlərin şirkətə "
+"etdikləri etimad da onun bütün öhdəlikləri dəqiq şəkildə yerinə yetirməsinin "
+"qanunauyğun nəticəsidir. “Beteko Group”la əməkdaşlıq – arzuedilən nəticəyə "
+"100 %% çatmaq deməkdir. Bu gün “Beteko” tikinti xidmətləri bazarının əsas "
+"dayaqlarından biridir. Bütün bu nailiyyətlərə baxmayaraq “Beteko Group” "
+"yerində dayanmaq fikrində deyildir, çünki şirkətin strategiyası – fasiləsiz "
+"inkişafdır."
+msgstr ""
+"Throughout all these years of planned development, Beteko Group has "
+"established itself.was able to show as a reliable partner. Such contractors "
+"to the companyTheir confidence is that he will fulfill all his obligations "
+"accurately.is a legitimate result. Cooperation with Beteko Group - to the "
+"desired resultIt means reaching 100 %%. Today, Beteko is the main market for "
+"construction services.Despite all these achievements, Beteko Groupdoes not "
+"intend to stand still, because the company's strategy - uninterruptedis "
+"development."
+
+#: core/templates/about.html:67 core/templates/index.html:139
 msgid "Daha ətraflı"
 msgstr "Read more"
 
-#: core/templates/about.html:65 core/templates/index.html:139
+#: core/templates/about.html:88 core/templates/index.html:160
 msgid "İşçilər"
 msgstr "Employees"
 
-#: core/templates/about.html:74 core/templates/index.html:148
+#: core/templates/about.html:97 core/templates/index.html:169
 msgid "Xoş Müştərilər"
 msgstr "Welcome Customers"
 
-#: core/templates/about.html:87 core/templates/index.html:161
+#: core/templates/about.html:110 core/templates/index.html:182
 msgid "Tamamlanmış Layihələr"
 msgstr "Completed Projects"
 
-#: core/templates/about.html:96 core/templates/index.html:170
+#: core/templates/about.html:119 core/templates/index.html:191
 msgid "İŞLƏNƏN PROYEKTLƏR"
 msgstr "WORKING PROJECTS"
 
@@ -99,8 +213,8 @@ msgstr "Latest from our blog"
 msgid "Əlaqə saxlayın"
 msgstr "Contact owner"
 
-#: core/templates/contact.html:14 core/templates/include/footer.html:40
-#: core/templates/include/header.html:88
+#: core/templates/contact.html:14 core/templates/include/footer.html:42
+#: core/templates/include/header.html:90
 msgid "Əlaqə"
 msgstr "Contact"
 
@@ -128,11 +242,11 @@ msgstr "Email"
 msgid "Mesaj göndərin"
 msgstr "Send message"
 
-#: core/templates/include/footer.html:41 core/templates/include/header.html:84
+#: core/templates/include/footer.html:43 core/templates/include/header.html:86
 msgid "Proyektlər"
 msgstr "Projects"
 
-#: core/templates/include/header.html:75
+#: core/templates/include/header.html:77
 msgid "Xidmətlər"
 msgstr "Services"
 
@@ -187,17 +301,18 @@ msgstr "24/7 Support"
 msgid "Xoş gəldiniz BETEKO GROUP"
 msgstr "Welcome to BETEKO GROUP"
 
-#: core/templates/index.html:185 services/templates/service.html:12
-#: services/templates/service.html:16 services/templates/service.html:28
+#: core/templates/index.html:206 services/templates/service.html:12
+#: services/templates/service.html:16 services/templates/service.html:27
+#: services/templates/service_details.html:16
 msgid "Services"
 msgstr " Our Services"
 
-#: core/templates/index.html:186 services/templates/service.html:29
+#: core/templates/index.html:207 services/templates/service.html:28
 msgid "Xidmətlər təqdim edirik"
 msgstr "We offer services"
 
-#: core/templates/index.html:196 services/templates/portfolio.html:58
-#: services/templates/service.html:63
+#: core/templates/index.html:250 services/templates/portfolio.html:84
+#: services/templates/service.html:88
 msgid "Ətraflı"
 msgstr "Details"
 
@@ -212,16 +327,23 @@ msgstr "Our Team"
 msgid "Mühəndislərimizlə tanış olun"
 msgstr "Meet our engineer"
 
-#: services/templates/portfolio.html:11 services/templates/portfolio.html:15
-#: services/templates/portfolio.html:26
-#: services/templates/projects-detail.html:7
+#: services/templates/portfolio.html:12 services/templates/portfolio.html:16
+#: services/templates/portfolio.html:27
+#: services/templates/projects-detail.html:9
 msgid "Layihələrimiz"
 msgstr "Our projects"
 
-#: services/templates/portfolio.html:27
-#: services/templates/projects-detail.html:8
+#: services/templates/portfolio.html:28
+#: services/templates/projects-detail.html:10
 msgid "Layihələrimizi Ziyarət Edin"
 msgstr "Visit our projects"
+
+#~ msgid ""
+#~ "Missiya Müştərilərimizə üstün dəyər verən məhsul və xidmətləri paylayaraq "
+#~ "Beteko üçün rəqabət üstünlüyü yaratmaq."
+#~ msgstr ""
+#~ "Mission By distributing products and services that give superior value to "
+#~ "our customers Create a competitive advantage for Beteko."
 
 #~ msgid "About"
 #~ msgstr "Haqqımızda"

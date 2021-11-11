@@ -9,8 +9,8 @@ class Service(models.Model):
     #relations
     category = models.ForeignKey('CategoryService',db_index=True,blank=True,null=True, related_name='services_category',on_delete=models.CASCADE,)
     title = models.CharField(max_length=50)
-    description = models.TextField(max_length=1000)
-    cover_image = models.ImageField(upload_to = 'service_img')
+    description = models.TextField(max_length=1000,blank=True,null=True)
+    cover_image = models.ImageField(upload_to = 'service_img',blank = True,null = True)
 
     def __str__(self):
         return self.title
@@ -35,7 +35,7 @@ class Service(models.Model):
 class Project(models.Model):
     category = models.ForeignKey('CategoryProject',db_index=True,blank=True,null=True, related_name='projects_category',on_delete=models.CASCADE,)
     title = models.CharField(max_length=50)
-    description = models.TextField(max_length=1000)
+    description = models.TextField(max_length=1000,blank=True,null=True)
     image = models.ImageField(upload_to = 'project_img')
     
     def __str__(self):

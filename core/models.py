@@ -62,8 +62,8 @@ class Blog(models.Model):
 
 
 class About(models.Model):
-    title = models.CharField(max_length=50)
-    description = models.TextField(max_length=1000)
+    # title = models.CharField(max_length=50)
+    description = models.TextField(max_length=1000,blank=True,null=True)
     about_image = models.ImageField(upload_to = 'media/about')
 
     def __str__(self):
@@ -81,9 +81,9 @@ class Team(models.Model):
 
 
 class Address(models.Model):
-    location = models.TextField(max_length=1000)
-    phone = models.IntegerField()
-    email = models.EmailField(default='info@beteko.com',blank=True)
+    location = models.TextField(max_length=1000,default="Nizami rayonu Əlişir Nəvai küç. 11")
+    phone = models.CharField(max_length=20,default='012-574-00-04')
+    email = models.EmailField(default='office@beteko.az',blank=True)
 
     def __str__(self):
         return self.email
