@@ -23,7 +23,7 @@ from django.conf import settings
 urlpatterns = [
     path('i18n/', include('django.conf.urls.i18n')),
     path("api/", include('core.api.urls', namespace="subscribe_api")),
-    path('admin/', admin.site.urls),
+    path('btk-grp-0001/', admin.site.urls),
     path("",include("core.urls",namespace='core')),
     path("",include("services.urls",namespace='services')),
 

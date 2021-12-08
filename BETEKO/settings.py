@@ -129,13 +129,16 @@ LANGUAGES = (
     
 )
 
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'i18n_app', 'locale'),
+]
 
 MODELTRANSLATION_DEFAULT_LANGUAGE = 'az'
 MODELTRANSLATION_LANGUAGES = ('en', 'az', 'ru')
 
-LOCALE_PATHS = [
-    join(BASE_DIR, 'i18n_app', 'locale'),
-]
+# LOCALE_PATHS = (
+#     os.path.join(BASE_DIR, 'locale'),
+# )
 
 
 
