@@ -62,8 +62,8 @@ class Blog(models.Model):
 
 
 class About(models.Model):
-    # title = models.CharField(max_length=50)
-    description = models.TextField(max_length=1000,blank=True,null=True)
+    title = models.CharField(max_length=50)
+    description = models.TextField(max_length=10000,blank=True,null=True)
     about_image = models.ImageField(upload_to = 'media/about')
 
     def __str__(self):
@@ -87,6 +87,13 @@ class Address(models.Model):
 
     def __str__(self):
         return self.email
+    
+
+class Images(models.Model):
+    image = models.ImageField(upload_to= 'carusel_image') 
+    
+    def __str__(self):
+        return str(self.image)
 
 
 

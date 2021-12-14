@@ -21,6 +21,9 @@ class ProjectsAdmin(TranslationAdmin):
 class ImageAdmin(admin.ModelAdmin):
     list_display = ('id','image')
     list_filter = ('id',)
+    
+    
+
 
 admin.site.register(CategoryService)
 admin.site.register(CategoryProject)

@@ -21,55 +21,29 @@
 
 
             <!-- About Start -->
+            {% for about in about_list %}
             <div class="about wow fadeInUp" data-wow-delay="0.1s">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-lg-5 col-md-6">
                             <div class="about-img">
-                                <img src="{% static 'img/about.jpg' %}" alt="Image">
+                                <img src="{{about.about_image.url}}" alt="Image">
                             </div>
                         </div>
                         <div class="col-lg-7 col-md-6">
                             <div class="section-header text-left">
-                                <p>{% trans "Betekoya xoş gəldiniz" %}</p>
-                                <h2>{% trans "25 İl Təcrübə" %}</h2>
+                                <p>{% trans "Xoş gəldiniz BETEKO GROUP" %}</p>
+                                <h2>{{about.title}}</h2>
                             </div>
-                            <div class="about-text">
-                                <p>
-                                    {% trans "“Beteko Group”un yüksək ixtisaslı mütəxəssisləri müştərilərinin tikinti və dizayn sahəsində olan hər hansı bir sifarişini yerinə yetirirlər. Onlar gələcək obyektin layihələşdirilməsindən başlamış, onun tam hazır şəkildə təhvil verilməsinə kimi bütün mərhələləri həyata keçirmək iqtidarındadırlar." %}
-                                </p>
-                                <p>
-                                   {% trans "“Beteko Group” MMC, ingilis variantında “Beteko Group Limited Liability Company” şirkəti 2006-cı ilin oktyabr ayından etibarən tikinti xidmətləri bazarında fəaliyyət göstərir. Bu müddət ərzində şirkət yerinə yetirdiyi işlərin bütün spektri boyunca – həm əhatə diapazonu, həm də keyfiyyətinə görə rəqibləri qarşısında öz üstünlüyünü sübut edə bilmişdir.“Beteko Group”un yüksək ixtisaslı mütəxəssisləri müştərilərinin tikinti və dizayn sahəsində olan hər hansı bir sifarişini yerinə yetirirlər. Onlar gələcək obyektin layihələşdirilməsindən başlamış, onun tam hazır şəkildə təhvil verilməsinə kimi bütün mərhələləri həyata keçirmək iqtidarındadırlar. " %}
-                                </p>
-                                <p>
-                                    {% trans "“Beteko”nun yerinə yetirdiyi xidmətlərin tam siyahısı aşağıdakılardan ibarətdir:" %}
-
-                                </p>
-                                <p>
-                                    {% trans "sənaye müəssisələrinin binalarının memarlıq layihələşdirilməsi, tikintisi, yenidən qurulması, avadanlığın quraşdırılması və sazlanması;" %}
-                                    
-                                    {% trans "obyektlərin memarlıq layihələrinin baş planlarının hazırlanması;" %}<br>
-                                    
-                                    {% trans "sənaye, ictimai və yaşayış təyinatlı obyektlərin memarlıq layihələşdirilməsi, tikintisi və yenidən qurulması;" %} <br>
-                                    
-                                    {% trans "mühəndis-tədqiqat işlərinin aparılması;" %}<br>
-                                    {% trans "bina və qurğuların təmir layihələrinin işlənib hazırlanması;" %} <br>
-                                    {% trans "tikinti sahəsində ekspert və məsləhət xidmətlərinin yerinə yetirilməsi;" %} <br>
-                                    {% trans "tikinti və təmir layihələrinin həyata keçirilməsinə nəzarət və onların koordinasiyası;" %} <br>
-
-                                    {% trans "telekommunikasiya sektorunda obyektlərin layihələşdirilməsi, tikintisi və texniki cəhətcə dəstəklənməsi üzrə xidmətlərin geniş spektri." %} <br>
-
-                                    {% trans "“Beteko Group” şirkəti hər bir zaman tikinti xidməti bazarının ən son meyllərini duyur və və onları öz fəaliyyətində istifadə edir. Şirkətin mütəxəssisləri öz səriştəlik səviyyələrini daima müxtəlif təlim kurslarında, treninqlərdə və seminarlarda artırırlar. Onlar burada əldə etdikləri bilikləri iş təcrübəsində müvəffəqiyyətlə tətbiq edirlər. “Beteko Group” – Azərbaycandakı müasir, ekoloji və texnoloji tikinti ideyasının canlı təzahürüdür." %} <br>
-                                    {% trans "Planlı şəkildə inkişafının bütün bu illəri boyu “Beteko Group” özünü etibarlı partnyor kimi göstərə bilmişdir. Elə kontragentlərin şirkətə etdikləri etimad da onun bütün öhdəlikləri dəqiq şəkildə yerinə yetirməsinin qanunauyğun nəticəsidir. “Beteko Group”la əməkdaşlıq – arzuedilən nəticəyə 100 % çatmaq deməkdir. Bu gün “Beteko” tikinti xidmətləri bazarının əsas dayaqlarından biridir. Bütün bu nailiyyətlərə baxmayaraq “Beteko Group” yerində dayanmaq fikrində deyildir, çünki şirkətin strategiyası – fasiləsiz inkişafdır." %}
-                                </p>
-
-                                   
-                                <a class="btn" href="">{% trans "Daha ətraflı" %}</a>
+                            <div class="about-text" style="overflow-wrap: break-word;">
+                                <p>{{about.description}}</p>
+                                <a class="btn" href="{% url 'core:about' %}">{% trans "Daha ətraflı" %}</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            {% endfor %}
             <!-- About End -->
             
             

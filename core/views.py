@@ -25,8 +25,9 @@ class IndexView(ListView):
         context["categories_list"] = CategoryService.get_all_service_categories()
         context['service_list'] =service
         context['servic'] = Service.get_service_all()[:6]
-
         context["service_list"] = Service.get_service_all()
+        context["about_list"] = About.objects.all()
+        context["images_list"] = Images.objects.all()
         return context
 
 

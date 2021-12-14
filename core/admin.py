@@ -1,4 +1,5 @@
 from django.contrib import admin
+from modeltranslation.admin import TranslationAdmin
 from core.models import *
 # Register your models here.
 
@@ -14,6 +15,11 @@ class AddressAdmin(admin.ModelAdmin):
     list_filter = ('email',)
     search_fields = ('email',)
 
+@admin.register(About)
+class AboutAdmin(TranslationAdmin):
+    list_display = ('title','description','about_image',)
+    list_filter = ('title',)
+    search_fields = ('title',)
 
 
 
@@ -26,6 +32,6 @@ class SubscriberAdmin(admin.ModelAdmin):
 
     
 
-admin.site.register(About)
 admin.site.register(Customer)
+admin.site.register(Images)
 
