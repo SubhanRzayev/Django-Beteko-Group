@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static i18n %}
+{% load thumbnail %}
 {% block content %}
         <div class="wrapper">
 
@@ -187,11 +188,10 @@
                                                 <a
                                                   href="{{s.get_absolute_url}}"
                                                 >
+                                                {% thumbnail s.cover_image "370x347" crop="center" as im %}
                                                   <img
-                                                    src="{{s.cover_image.url}}"
-                                                    class="img-fluid"
-                                                    alt="Metal Constructions"
-                                                  />
+                                                    src="{{ im.url }}" width="300" height="370">
+                                                {% endthumbnail %}
                                                 </a>
                                               </div>
                                               <div class="icon">
