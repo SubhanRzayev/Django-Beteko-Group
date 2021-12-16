@@ -9,7 +9,7 @@ form.addEventListener('submit',async function (e) {
     let form_data = {
         'email': form.email.value
     }
-    let response = await fetch('http://beteko.az/api/subscribe/',{
+    let response = await fetch('https://beteko.az/api/subscribe/',{
         headers: {
             'content-type': 'application/json',
             "X-CSRFToken" : form.csrfmiddlewaretoken.value
