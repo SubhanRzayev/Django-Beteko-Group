@@ -9,7 +9,7 @@
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <h2>{{service.title}}</h2>
+          <h2>{% trans "Services" %}</h2>
         </div>
         <div class="col-12">
           <a href="{% url 'core:index' %}">{% trans "Ana Səhifə" %}</a>
@@ -21,41 +21,65 @@
   <div class="col-12 about-area space__inner--y30">
     <div class="row">
       <div class="col-lg-7 col-12 order-1 order-lg-2">
-        <div class="about-area space__inner--y30">
+        <div class="about-area ">
           <div class="container">
             <div class="fr-view">
               <h2><strong>{{service.title}}</strong></h2>
               
               <p>{{service.description}}<br></p>
-            
-                {% thumbnail service.cover_image "370x347" crop="center" as im %}
-                    <img src="{{ im.url }}" width="320" height="400">
-                {% endthumbnail %}
-              
-              
-              <p><br /></p>
-              <p><br /></p>
-             
             </div>
+
+            <div class="row">
+                <div class="col-6-col-xs-6">
+                  <div class="imgbot">
+                  <a
+                    href="{{service.cover_image.url}}"
+                    data-toggle="lightbox"
+                    data-gallery="example-gallery"
+                    
+
+                  >
+                      {% thumbnail service.cover_image "370x347" crop="center" as im %}
+                      <img src="{{ im.url }}" width="300" height="370">
+                    {% endthumbnail %}
+                  </a>
+                {% for i in service.service_image.all %}
+                    
+                  <a
+                    href="{{i.image.url}}"
+                    data-toggle="lightbox"
+                    data-gallery="example-gallery"
+                    
+
+                    
+                  >
+                  {% thumbnail i.image "370x347" crop="center" as im %}
+                    <img src="{{ im.url }}" width="300" height="370">
+                  {% endthumbnail %}
+                    
+                  </a>
+              {% endfor %}
+                </div>
+              </div>
+            </div>
+            
+            
           </div>
         </div>
       </div>
       <div class="col-lg-5 col-12 order-2 order-lg-1 space__top__md--50 space__top__lm--50"> 
           <div class="sidebar"> <h3 class="sidebar-title">Menu</h3> 
             <ul class="sidebar-list"> 
-              {% comment %} {% for category in categories_list %}
-              {% if category.is_published %} {% endcomment %}
+              
               {% for s in servic  %}
                 <li> 
                     <a href="{{s.get_absolute_url}}"> 
 
-                    {% comment %} <a href="/service?category={{category.id}}">  {% endcomment %}
                         <i class="fa fa-chevron-right"></i> {{s.title}} 
                     </a> 
                 </li> 
                 {% endfor %}
-                {% comment %} {% endif %}
-              {% endfor %} {% endcomment %}
+               
                
             </ul> 
         </div> 

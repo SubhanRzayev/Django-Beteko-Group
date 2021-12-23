@@ -17,5 +17,5 @@ def servic():
 
 @register.simple_tag
 def header_category():
-    return  CategoryService.get_all_service_categories()
+    return CategoryService.get_all_service_categories()
     

@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+{% load thumbnail %}
+
+{% block content %}
+<div class="wrapper">
+
+<div class="page-header">
+  <div class="container">
+      <div class="row">
+          <div class="col-12">
+              <h2>{% trans "ELANLAR" %}</h2>
+          </div>
+          <div class="col-12">
+              <a href="{% url 'core:index' %}">{% trans "Ana Səhifə" %}</a>
+              <a href="">{% trans "ELANLAR" %}</a>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+  <div class="container">
+    <div class="offer-top">
+        <div class="top-bg-color"></div>
+        <h2 style="margin-top:14%; font-size:29px;"></h2>
+    </div>
+    <div class="row d-flex flex-wrap">
+    
+    
+        <div class="col-12 col-lg-4 col-md-6 col-sm-7">
+            <div class="single-offer" data-aos="fade-up" data-aos-duration="1500">
+                <div class="sf-img">
+                  {% thumbnail careers.image "370x347" crop="center" as im %}
+                  <img src="{{ im.url }}" width="300" height="370">
+                  {% endthumbnail %}
+            
+                </div>
+            </div>  
+        </div>  
+
+        <div class="col-12 col-lg-8 col-md-6 col-sm-5">
+                <div class="sf-text" style="font-size: 18px;">
+                  <h6>{{careers.title}}</h6>
+                </div>
+                <p>
+                  <span style="font-size: 18px;">
+                    {{careers.description}}
+                  </span>
+                </p>
+                {% for i in careers.careers_required.all %}
+                <object data="{{i.pdfile.url}}" type="application/pdf" width="500px" height="600px">
+                  <p>
+                   <strong style="color:#fdbe33">{% trans "Pdf file-nı yükləmək üçün bu linkə basın:" %}
+                   <a style="border-bottom:3px solid black;" href="{{i.pdfile.url}}">{{i.pdfile}}</a>
+                  </p>
+                </strong> 
+                </object>
+                {% endfor %}
+
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+
+
+                <p>
+                  {% for address in address_list %}
+                  <strong style="font-size: 18px; color:red;">{% trans "Zəhmət olmasa CV-nizi  " %}<a href="mailto:contact@infobeteko.com"><b style="color:black; border-bottom:1px double black;">{{address.email}}</b></a>{% trans "  email adresinə göndərin" %}</strong>
+                  {% endfor %}
+                </p>
+        </div>
+          
+      </div>
+        
+        
+        
+    </div>
+</div>
+
+{% endblock %}
+        
+        
+        

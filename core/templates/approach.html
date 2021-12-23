@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+{% load thumbnail %}
+
+{% block content %}
+        <div class="wrapper">
+
+            <!-- Page Header Start -->
+            <div class="page-header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2>{% trans "Bizim yanaşmamız"%}</h2>
+                        </div>
+                        <div class="col-12">
+                            <a href="{% url 'core:index' %}">{% trans "Ana Səhifə" %}</a>
+                            <a href="">{% trans "Bizim yanaşmamız" %}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Page Header End -->
+
+
+            <!-- About Start -->
+            {% for approach in approach_list %}
+            <div class="about wow fadeInUp" data-wow-delay="0.1s">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-5 col-md-6 ">
+                            <div class="about-img">
+                                {% thumbnail approach.our_approach_img "370x347" crop="center" as im %}
+                                        <img src="{{ im.url }}" width="300" height="370">
+                                {% endthumbnail %}
+                                
+                                {% for i in approach.approach_image.all %}
+                                    {% thumbnail i.image "370x347" crop="center" as im %}
+                                            <img src="{{ im.url }}" width="300" height="370">
+                                    {% endthumbnail %}
+                                {% endfor %}
+                                
+                            </div>
+
+                            
+                        </div>
+                        <div class="col-lg-7 col-md-6">
+                            <div class="section-header text-left">
+                                
+                                <strong>{{approach.title}}</strong>
+                            </div>
+                            <div class="about-text" style="overflow-wrap: break-word;">
+                                <p>
+                                    <span style="font-size: 18px;">
+                                        {{approach.our_approach_paragraph1}}
+                                    </span>
+                                </p>
+                                <br>
+                                
+                                <p>
+                                    <span style="font-size:18px;">
+                                        {{approach.our_approach_paragraph2}}
+                                    </span>
+
+                                </p>
+                                <br>                                    
+                                
+                                <br>
+                                
+                                <p>
+                                    <span style="font-size: 18px;">
+                                        {{approach.our_approach_paragraph3}}
+                                    </span>
+                                </p>
+
+                                <p>
+                                    <span style="font-size: 18px;">
+                                        {{approach.our_approach_paragraph4}}
+                                    </span>
+                                </p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <!-- About End -->
+            
+            
+            <!-- Fact Start -->
+            {% for employess in employess_list %}
+            <div class="fact">
+                <div class="container-fluid">
+                    <div class="row counters">
+                        <div class="col-md-6 fact-left wow slideInLeft">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="fact-icon">
+                                        <i class="flaticon-worker"></i>
+                                    </div>
+                                    <div class="fact-text">
+                                        <h2 data-toggle="counter-up">{{employess.işçilər}}</h2>
+                                        <p>{% trans "İşçilər" %}</p>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="fact-icon">
+                                        <i class="flaticon-building"></i>
+                                    </div>
+                                    <div class="fact-text">
+                                        <h2 data-toggle="counter-up">{{employess.musteriler}}</h2>
+                                        <p>{% trans "Xoş Müştərilər" %}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 fact-right wow slideInRight">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="fact-icon">
+                                        <i class="flaticon-address"></i>
+                                    </div>
+                                    <div class="fact-text">
+                                        <h2 data-toggle="counter-up">{{employess.bitmis_layiheler}}</h2>
+                                        <p>{% trans "Tamamlanmış Layihələr" %}</p>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="fact-icon">
+                                        <i class="flaticon-crane"></i>
+                                    </div>
+                                    <div class="fact-text">
+                                        <h2 data-toggle="counter-up">{{employess.islenen_proyektler}}</h2>
+                                        <p>{% trans "İŞLƏNƏN PROYEKTLƏR" %}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <!-- Fact End -->
+
+            <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+        </div>
+
+{% endblock  %}

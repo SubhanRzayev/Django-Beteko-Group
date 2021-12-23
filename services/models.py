@@ -8,7 +8,8 @@ from django.urls import reverse,reverse_lazy
 class Service(models.Model):
     #relations
     category = models.ForeignKey('CategoryService',db_index=True,blank=True,null=True, related_name='services_category',on_delete=models.CASCADE,)
-    title = models.CharField(max_length=50)
+    
+    title = models.CharField(max_length=200)
     description = models.TextField(max_length=1000,blank=True,null=True)
     cover_image = models.ImageField(upload_to = 'service_img',blank = True,null = True)
 
@@ -29,7 +30,11 @@ class Service(models.Model):
     def get_absolute_url(self):
         return reverse_lazy("services:service_detail", kwargs={ "pk": self.pk})
             
-
+    
+    class Meta:
+        verbose_name = "Service"
+        verbose_name_plural = "Xidmətlər"
+        
 
 
 class Project(models.Model):
@@ -60,26 +65,40 @@ class Project(models.Model):
         return reverse_lazy("services:projects_detail", kwargs={ "pk": self.pk})
     
     
-
-
+    class Meta:
+        verbose_name = "Project"
+        verbose_name_plural = "Proyektlər"
 
 
     
 class CategoryService(models.Model):
-    title = models.CharField(max_length=40)
-    is_published = models.BooleanField(default=False,blank=True)
+    parent_category = models.ForeignKey('self',on_delete=models.CASCADE,blank=True,null=True,related_name="category_subcategories")    
+    
+    category = models.CharField(max_length=80)
 
     def __str__(self):
-        return self.title
+        if self.parent_category:
+            return f"{self.parent_category.category} > {self.category}"
+        return str(self.category)
 
     @staticmethod
     def get_all_service_categories():
-        return CategoryService.objects.all()
+        return CategoryService.objects.filter(parent_category=None)
+
+    class Meta:
+        verbose_name = "CategoryService"
+        verbose_name_plural = "KateqoriyaXidmətlər"
+    
+    
+
+        
+    
+
 
 
 class CategoryProject(models.Model):
-    title = models.CharField(max_length=40)
-    is_published = models.BooleanField(default=False,blank=True)
+    title = models.CharField(max_length=80)
+
 
     def __str__(self):
         return self.title
@@ -89,6 +108,12 @@ class CategoryProject(models.Model):
         return CategoryProject.objects.all()
 
 
+    class Meta:
+        verbose_name = "CategoryProject"
+        verbose_name_plural = "KateqoriyaProyektlər"
+
+    
+
 class Image(models.Model):
     service = models.ForeignKey('Service',db_index=True,on_delete=models.CASCADE,blank=True,null=True,related_name='service_image')
     projects = models.ForeignKey('Project',db_index=True,on_delete=models.CASCADE,blank=True,null=True,related_name='projects_image')
@@ -96,6 +121,11 @@ class Image(models.Model):
 
     def __str__(self):
         return str(self.image)
+    
+    
+    class Meta:
+        verbose_name = "Image"
+        verbose_name_plural = "Şəkillər"
 
 
 

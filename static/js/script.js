@@ -31,3 +31,11 @@ form.addEventListener('submit',async function (e) {
     
 })
     
+
+    $(document).ready(function() {
+    $(".dropdown-item").click(function () {
+        $(".dropdown-item").removeClass("active");
+        // $(".tab").addClass("active"); // instead of this do the below 
+        $(this).addClass("active");   
+    });
+    });

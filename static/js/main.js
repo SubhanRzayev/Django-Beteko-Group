@@ -55,46 +55,9 @@
         time: 2000
     });
     
+
     
-    // Modal Video
-    $(document).ready(function () {
-        var $videoSrc;
-        $('.btn-play').click(function () {
-            $videoSrc = $(this).data("src");
-        });
-        console.log($videoSrc);
 
-        $('#videoModal').on('shown.bs.modal', function (e) {
-            $("#video").attr('src', $videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0");
-        })
-
-        $('#videoModal').on('hide.bs.modal', function (e) {
-            $("#video").attr('src', $videoSrc);
-        })
-    });
-
-
-    // Testimonial Slider
-    $('.testimonial-slider').slick({
-        infinite: true,
-        autoplay: true,
-        arrows: false,
-        dots: false,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        asNavFor: '.testimonial-slider-nav'
-    });
-    $('.testimonial-slider-nav').slick({
-        arrows: false,
-        dots: false,
-        focusOnSelect: true,
-        centerMode: true,
-        centerPadding: '22px',
-        slidesToShow: 3,
-        asNavFor: '.testimonial-slider'
-    });
-    $('.testimonial .slider-nav').css({"position": "relative", "height": "160px"});
-    
     
     // Blogs carousel
     $(".related-slider").owlCarousel({

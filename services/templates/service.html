@@ -1,5 +1,7 @@
 {% extends 'base.html' %} 
 {% load static i18n %}
+{% load custom_tags %}
+
 {% load thumbnail %}
 
 {% block content %}
@@ -9,11 +11,11 @@
         <div class="container">
         <div class="row">
             <div class="col-12">
-            <h2>{% trans "Services" %}</h2>
+            <h2>{% trans "Xidmətlər" %}</h2>
             </div>
             <div class="col-12">
             <a href="">{% trans "Ana Səhifə" %}</a>
-            <a href="">{% trans "Services" %}</a>
+            <a href="">{% trans "Xidmətlər" %}</a>
             </div>
         </div>
         </div>
@@ -24,24 +26,38 @@
   <div class="portfolio category">
     <div class="container">
       <div class="section-header text-center">
-        <p>{% trans "Services" %}</p>
+        <p>{% trans "Xidmətlər" %}</p>
         <h2>{% trans "Xidmətlər təqdim edirik" %}</h2>
       </div>
       <div class="row">
-        <div class="col-12">
-          <ul id="portfolio-flters">
-            <a href="/service"><li>All</li></a>
-
-            {% for category in categories_list %} 
-            {% if category.is_published %}
-            <a href="/service?category={{category.id}}" 
-              ><li>{{category.title}}</li></a
-            >
-            {% endif %} 
-            {% endfor %}
+        <ul id="portfolio-flters">
+        <div class="col-12-col-xs-7 d-flex flex-wrap">
+          <a href="/service"><li>{% trans "Bütün xidmətlər" %}</li></a>
+          
+          {% header_category as context%}
+          {% for i in context %}
+          <ul>
+            <li>
+                <a href="/service?category={{i.id}}" 
+                >{{i.category}}</a>
+            </li>
+            
+            <ul>
+              {% for j in i.category_subcategories.all %} 
+              <li>
+                <a href="/service?category={{j.id}}"class="dropdown-item-active">{{j.category}}</a>
+              </li>
+              {% endfor %}
+            </ul>
           </ul>
+          
+            
+            
+          
+            {% endfor %}
+          </div>
+        </ul>
         </div>
-      </div>
 
       <div class="service">
         <div class="container">
@@ -81,7 +97,7 @@
                                       >{{service.title}}</a
                                     >
                                   </h3>
-                                  <p class="card-text">{{service.description|truncatechars:30}}</p>
+                                  <p class="card-text">{{service.description}}</p>
                                     
                                   
                                   <a href="{{service.get_absolute_url}}" class="btn btn-warning"

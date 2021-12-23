@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 {% load static i18n %}
+{% load thumbnail %}
+
 {% block content %}
         <div class="wrapper">
 
@@ -25,18 +27,59 @@
             <div class="about wow fadeInUp" data-wow-delay="0.1s">
                 <div class="container">
                     <div class="row align-items-center">
-                        <div class="col-lg-5 col-md-6">
+                        <div class="col-lg-5 col-md-6 ">
                             <div class="about-img">
-                                <img src="{{about.about_image.url}}" alt="Image">
+                                {% thumbnail about.about_img "370x347" crop="center" as im %}
+                                        <img src="{{ im.url }}" width="300" height="370">
+                                {% endthumbnail %}
+                                
+                                {% for i in about.about_image.all %}
+                                    {% thumbnail i.image "370x347" crop="center" as im %}
+                                            <img src="{{ im.url }}" width="300" height="370">
+                                            {% endthumbnail %}
+                                {% endfor %}
+                                
                             </div>
+
+                            
                         </div>
                         <div class="col-lg-7 col-md-6">
                             <div class="section-header text-left">
-                                <p>{% trans "Xoş gəldiniz BETEKO GROUP" %}</p>
-                                <h2>{{about.title}}</h2>
+                                
+                                <strong style="font-size: 20px;">{{about.title}}</strong>
                             </div>
                             <div class="about-text" style="overflow-wrap: break-word;">
-                                <p>{{about.description}}</p>
+                                <p>
+                                    <span style="font-size: 18px;">
+                                        {{about.about_paragraph1}}
+                                    </span>
+                                </p>
+                                <br>
+                                
+                                <p>
+                                    <span style="font-size:18px;">
+                                        {{about.about_paragraph2}}
+                                    </span>
+
+                                </p>
+                                <br>
+                                
+
+                                <ul>
+                                    {% for i in about_service_names_list %}
+                                    <li>{{i.xidmet_ad}}</li><br>
+                                    {% endfor %}
+                                </ul>
+
+                                    
+                                
+                                <br>
+                                
+                                <p>
+                                    <span style="font-size: 18px;">
+                                        {{about.about_paragraph4}}
+                                    </span>
+                                </p>
                                 <a class="btn" href="{% url 'core:about' %}">{% trans "Daha ətraflı" %}</a>
                             </div>
                         </div>
@@ -48,6 +91,7 @@
             
             
             <!-- Fact Start -->
+            {% for employess in employess_list %}
             <div class="fact">
                 <div class="container-fluid">
                     <div class="row counters">
@@ -58,7 +102,7 @@
                                         <i class="flaticon-worker"></i>
                                     </div>
                                     <div class="fact-text">
-                                        <h2 data-toggle="counter-up">109</h2>
+                                        <h2 data-toggle="counter-up">{{employess.işçilər}}</h2>
                                         <p>{% trans "İşçilər" %}</p>
                                     </div>
                                 </div>
@@ -67,7 +111,7 @@
                                         <i class="flaticon-building"></i>
                                     </div>
                                     <div class="fact-text">
-                                        <h2 data-toggle="counter-up">485</h2>
+                                        <h2 data-toggle="counter-up">{{employess.musteriler}}</h2>
                                         <p>{% trans "Xoş Müştərilər" %}</p>
                                     </div>
                                 </div>
@@ -80,7 +124,7 @@
                                         <i class="flaticon-address"></i>
                                     </div>
                                     <div class="fact-text">
-                                        <h2 data-toggle="counter-up">789</h2>
+                                        <h2 data-toggle="counter-up">{{employess.bitmis_layiheler}}</h2>
                                         <p>{% trans "Tamamlanmış Layihələr" %}</p>
                                     </div>
                                 </div>
@@ -89,7 +133,7 @@
                                         <i class="flaticon-crane"></i>
                                     </div>
                                     <div class="fact-text">
-                                        <h2 data-toggle="counter-up">890</h2>
+                                        <h2 data-toggle="counter-up">{{employess.islenen_proyektler}}</h2>
                                         <p>{% trans "İŞLƏNƏN PROYEKTLƏR" %}</p>
                                     </div>
                                 </div>
@@ -98,6 +142,7 @@
                     </div>
                 </div>
             </div>
+            {% endfor %}
             <!-- Fact End -->
 
             <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>

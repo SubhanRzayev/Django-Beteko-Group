@@ -16,14 +16,8 @@
                             <div class="row">
                                 <div class="col-4">
                                     <div class="top-bar-item">
-                                        <div class="top-bar-icon">
-                                            <i class="flaticon-calendar"></i>
-                                        </div>
-                                        <div class="top-bar-text">
-                                            <h3>Opening Hour</h3>
-                                            <p>Mon - Fri, 8:00 - 9:00</p>
-                                            
-                                        </div>
+                                        
+                                        
                                  
                                     </div>
                                 </div>
@@ -35,7 +29,7 @@
                                             <i class="flaticon-call"></i>
                                         </div>
                                         <div class="top-bar-text">
-                                            <h3>Call Us</h3>
+                                            <h3>{% trans "Call Us" %}</h3>
                                             <a href="tel:+012 570 00 04 ">{{i.phone}}</a>
                                         </div>
                                     </div>
@@ -46,7 +40,7 @@
                                             <i class="flaticon-send-mail"></i>
                                         </div>
                                         <div class="top-bar-text">
-                                            <h3>Email Us</h3>
+                                            <h3>{% trans "Email Us" %}</h3>
                                             <a href="mailto:contact@infobeteko.com">{{i.email}}</a>
                                         </div>
                                         
@@ -72,20 +66,53 @@
                         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                             <div class="navbar-nav mr-auto">
                                 <a href="{% url 'core:index' %}" class="nav-item nav-link">{% trans "Ana Səhifə" %}</a>
-                                    <a href="{% url 'core:about' %}" class="nav-link ">{% trans "Haqqımızda" %}</a>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        {% trans "Haqqımızda" %}
+                                      
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                      <a class="dropdown-item-active" href="{% url 'core:about' %}">{% trans "Şirkət haqqında məlumat" %}</a><br>
+                                      <a class="dropdown-item-active" href="{% url 'core:approach' %}">{% trans "Bizim yanaşmamız" %}</a>
+                                      
+                                    </div>
+                                  </li>
+                                    
                                 <div class="nav-item dropdown">
                                     <a href="{% url 'services:service' %}" class="nav-link dropdown-toggle " data-toggle="dropdown">{% trans "Xidmətlər" %}</a>
                                     <div class="dropdown-menu">
-                                     <a href="/service"><li>All</li></a>    
-                                     {% header_category as context%}
-                                    {% for i in context %}
-                                        <a href="/service?category={{i.id}}" class="dropdown-item-active">{{i.title}}</a>
-                                    {% endfor %}
+                                    
+                                    <a href="/service"><li>{% trans "Bütün xidmətlər" %}</li></a> 
+                                    {% header_category as context%}
+                            {% for i in context %}
+                                    
+                                <li>
+                                    <a href="/service?category={{i.id}}" class="dropdown-item-active">{{i.category}}</a>
+                                </li>
+                                    
+                                
+                                
+                                {% for j in i.category_subcategories.all %}
+                                    <ul class="nav-item dropdown">  
+                                        <li class="nav-item">
+                                            <a href="/service?category={{j.id}}" class="dropdown-item-active">{{j.category}}</a>
+                                        </li>
+                                    </ul>
+                                {% endfor %}
+                                 
+                                
+                            {% endfor %}
+                                    
+                                    
+                                        
+                                        
+                                    
                                     </div>
                                 </div>
-                                <a href="{% url 'services:projects' %}" class="nav-item nav-link">{% trans "Proyektlər" %}</a>
+                                <a href="{% url 'services:projects' %}" class="nav-item nav-link">{% trans "LAYİHƏLƏR" %}</a>
     
-                                    
+                                <a href="{% url 'core:careers' %}" class="nav-item nav-link">{% trans " ELANLAR" %}</a>
+                                 
                                 
                                 <a href="{% url 'core:contact' %}" class="nav-item nav-link">{% trans "Əlaqə" %}</a>
                                 

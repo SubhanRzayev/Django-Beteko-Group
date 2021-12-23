@@ -9,11 +9,11 @@
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <h2>{% trans "Layihələrimiz" %}</h2>
+          <h2>{% trans "LAYİHƏLƏR" %}</h2>
         </div>
         <div class="col-12">
           <a href="">{% trans "Ana Səhifə" %}</a>
-          <a href="">{% trans "Layihələrimiz" %}</a>
+          <a href="">{% trans "LAYİHƏLƏR" %}</a>
         </div>
       </div>
     </div>
@@ -24,13 +24,13 @@
   <div class="portfolio category">
     <div class="container">
       <div class="section-header text-center">
-        <p>{% trans "Layihələrimiz" %}</p>
+        <p>{% trans "LAYİHƏLƏR" %}</p>
         <h2>{% trans "Layihələrimizi Ziyarət Edin" %}</h2>
       </div>
       <div class="row">
         <div class="col-12">
           <ul id="portfolio-flters">
-            <a href="/projects"><li>All</li></a>
+            <a href="/projects"><li>{% trans "Bütün layihələr" %}</li></a>
 
             {% for category in categories_list %}
             <a href="/projects?category={{category.id}}"
@@ -77,7 +77,7 @@
                                       >{{project.title}}</a
                                     >
                                   </h3>
-                                  <p class="card-text">{{project.description|truncatechars:35}}</p>
+                                  <p class="card-text">{{project.description}}</p>
                                     
                                   
                                   <a href="{{project.get_absolute_url}}" class="btn btn-warning"

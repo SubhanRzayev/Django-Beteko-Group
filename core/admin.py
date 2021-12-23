@@ -17,8 +17,8 @@ class AddressAdmin(admin.ModelAdmin):
 
 @admin.register(About)
 class AboutAdmin(TranslationAdmin):
-    list_display = ('title','description','about_image',)
-    list_filter = ('title',)
+    list_display = ('title','about_paragraph1','about_paragraph2','about_paragraph4','about_img',)
+    list_filter = ('title',)                                                
     search_fields = ('title',)
 
 
@@ -30,8 +30,36 @@ class SubscriberAdmin(admin.ModelAdmin):
     search_fields = ('email',)
 
 
+@admin.register(About_service_names)
+class About_service_namesAdmin(TranslationAdmin):
+    list_display = ('xidmet_ad',)
+    
+    
+@admin.register(Approach)
+class ApproachAdmin(TranslationAdmin):
+    list_display = ('title','our_approach_paragraph1','our_approach_paragraph2','our_approach_paragraph3','our_approach_paragraph4','our_approach_img',) 
+    list_filter = ('title',)
+    search_fields = ('title',)
+    
+    
+@admin.register(Careers)
+class CareersAdmin(TranslationAdmin):
+    list_display = ('title','description','image','created_at',)       
     
 
-admin.site.register(Customer)
+# @admin.register(SpecialKnowledgeRequired)
+# class SpecialKnowledgeRequiredAdmin(TranslationAdmin):
+#     list_display = ('tələb_olunan_xüsusi_biliklər','namizədə_tələblər',)      
+    
+    
+admin.site.register(Carusel)
 admin.site.register(Images)
+admin.site.register(Employees)
+admin.site.register(Pdfile)
+
+
+
+
+
+
 

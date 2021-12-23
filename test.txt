@@ -1,0 +1,219 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+{% load thumbnail %}
+
+{% block content %}
+<div class="wrapper">
+
+<div class="page-header">
+  <div class="container">
+      <div class="row">
+          <div class="col-12">
+              <h2>{% trans "İş Elanları" %}</h2>
+          </div>
+          <div class="col-12">
+              <a href="{% url 'core:index' %}">{% trans "Ana Səhifə" %}</a>
+              <a href="">{% trans "İş Elanları" %}</a>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+              <div class="logo">
+                <a href="{% url 'core:index' %}">
+                    <img src="{% static 'img/logo.png' %}" alt="Logo">
+                  </a>
+                </div>
+                <div class="card-body" style="border: 5px double #6c757d;">
+                  <b class="card-title">{{careers.title}}</b>
+                </div>
+              <div class="about-text " style="overflow-wrap: break-word; border:5px double #6c757d;padding:15px;  ">
+                <p>
+                  <strong style="font-size: 18px; color:#3495db">{% trans "İş barədə məlumat" %}</strong>
+                </p>
+
+                <hr>
+                <p>
+                  <span style="font-size: 18px;">{% trans "Tələb olunan xüsusi biliklər" %}</span>
+
+                </p>
+                
+
+                <ul>
+                  {% for i in careers.careers_required.all %}
+                  <li style="font-size: 18px;">{{i.tələb_olunan_xüsusi_biliklər}}</li>
+                  {% endfor %}
+                </ul>
+                <br>
+                <p>
+                  <strong style="font-size: 18px;color:#3495db">{% trans "Namizədə tələblər" %}</strong>
+
+                </p>
+                <hr>
+                                                 
+                
+                <ul>
+                  {% for i in careers.careers_required.all %}
+                  <li style="font-size: 18px;">{{i.namizədə_tələblər}}</li>
+                  {% endfor %}
+                </ul>
+                <br>
+                <p>
+                  {% for address in address_list %}
+                  <strong style="font-size: 18px; color:red;">{% trans "Zəhmət olmasa CV-nizi  " %}<a href="mailto:contact@infobeteko.com"><b style="color:black; border-bottom:1px double black;">{{address.email}}</b></a>{% trans "  email adresinə göndərin" %}</strong>
+                  {% endfor %}
+                </p>
+              </div>
+
+            </div>
+            
+          </div>
+                
+                
+                
+              
+
+
+          class Service(models.Model):
+          #relations
+          category = models.ForeignKey('CategoryService',db_index=True,blank=True,null=True, related_name='services_category',on_delete=models.CASCADE,)
+          title = models.CharField(max_length=200)
+          description = models.TextField(max_length=1000,blank=True,null=True)
+          cover_image = models.ImageField(upload_to = 'service_img',blank = True,null = True)
+      
+          def __str__(self):
+              return self.title
+      
+          @staticmethod
+          def get_service_all():
+              return Service.objects.all()
+      
+          @staticmethod
+          def get_all_services_by_categoryid(category_id):
+              if category_id:
+                  return Service.objects.filter(category = category_id)
+              else:
+                  return Service.objects.all()
+      
+          def get_absolute_url(self):
+              return reverse_lazy("services:service_detail", kwargs={ "pk": self.pk})
+                  
+          
+          class Meta:
+              verbose_name = "Service"
+              verbose_name_plural = "Xidmətlər"
+              
+      
+      
+      class Project(models.Model):
+          category = models.ForeignKey('CategoryProject',db_index=True,blank=True,null=True, related_name='projects_category',on_delete=models.CASCADE,)
+          title = models.CharField(max_length=50)
+          description = models.TextField(max_length=1000,blank=True,null=True)
+          image = models.ImageField(upload_to = 'project_img')
+          
+          def __str__(self):
+              return str(self.id)
+      
+          
+          
+          @staticmethod
+          def get_projects_all():
+              return Project.objects.all()
+          
+      
+          @staticmethod
+          def get_all_projects_by_categoryid(category_id):
+              if category_id:
+                  return Project.objects.filter(category = category_id)
+              else:
+                  return Project.objects.all()
+      
+      
+          def get_absolute_url(self):
+              return reverse_lazy("services:projects_detail", kwargs={ "pk": self.pk})
+          
+          
+          class Meta:
+              verbose_name = "Project"
+              verbose_name_plural = "Proyektlər"
+      
+      
+      
+      
+          
+      class CategoryService(models.Model):
+          categories = models.ForeignKey('self',blank=True, null=True, on_delete=models.CASCADE, related_name="subcategories")
+          title = models.CharField(max_length=80)
+      
+          def __str__(self):
+              if self.categories:
+                  return f"{self.categories.title} > {self.title}" 
+              return str(self.categories)
+      
+          @staticmethod
+          def get_all_service_categories():
+              return CategoryService.objects.all()
+      
+          class Meta:
+              verbose_name = "CategoryService"
+              verbose_name_plural = "KateqoriyaXidmətlər"
+          
+          
+              
+          
+      
+      
+      
+      class CategoryProject(models.Model):
+          title = models.CharField(max_length=80)
+      
+      
+          def __str__(self):
+              return self.title
+      
+          @staticmethod
+          def get_all_project_categories():
+              return CategoryProject.objects.all()
+      
+      
+          class Meta:
+              verbose_name = "CategoryProject"
+              verbose_name_plural = "KateqoriyaProyektlər"
+      
+          
+      
+      class Image(models.Model):
+          service = models.ForeignKey('Service',db_index=True,on_delete=models.CASCADE,blank=True,null=True,related_name='service_image')
+          projects = models.ForeignKey('Project',db_index=True,on_delete=models.CASCADE,blank=True,null=True,related_name='projects_image')
+          image = models.ImageField(upload_to = 'service_image')
+      
+          def __str__(self):
+              return str(self.image)
+          
+          
+          class Meta:
+              verbose_name = "Image"
+              verbose_name_plural = "Şəkillər"
+           
+
+
+
+
+
+
+    </div>
+
+
+
+</section>
+</div>
+
+{% endblock %}
+        
+        
+        

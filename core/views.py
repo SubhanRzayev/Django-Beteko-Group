@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.urls.base import reverse_lazy
 from django.views.generic import ListView
+from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView
 from core.forms import ContactForm
 from core.models import *
@@ -28,6 +29,11 @@ class IndexView(ListView):
         context["service_list"] = Service.get_service_all()
         context["about_list"] = About.objects.all()
         context["images_list"] = Images.objects.all()
+        context["carusel_list"] = Carusel.objects.all()
+        context["employess_list"] = Employees.objects.all()
+        
+        
+        context['about_service_names_list'] = About_service_names.objects.all()
         return context
 
 
@@ -41,7 +47,7 @@ class ContactView(CreateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['address_list'] = Address.objects.all()
-        context['customer_list'] = Customer.objects.all()
+        
 
         return context
 
@@ -57,8 +63,42 @@ class AboutView(ListView):
     template_name = 'about.html'
 
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['about_service_names_list'] = About_service_names.objects.all()
+        context["employess_list"] = Employees.objects.all()
+        
 
+        return context
+    
+class ApproachView(ListView):
+    model = Approach
+    template_name = 'approach.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["images_list"] = Images.objects.all()  
+        context["employess_list"] = Employees.objects.all()
+             
+        return context
 
+class CareersView(ListView):
+    model = Careers
+    template_name = 'careers.html'
+    
+
+class CareersDetailView(DetailView):
+    model = Careers
+    template_name = 'careers_detail.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["carrers_list"] = Careers.objects.all()
+        context["pdfile"] = Pdfile.objects.all()
+        context["address_list"] = Address.objects.all()
+        return context
+    
+    
 
 
     
